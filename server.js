@@ -6,7 +6,7 @@ const env = require('dotenv').config();
 const mongoose = require('mongoose');
 const Subscription = require('./Models/Subscription'); // Import the Subscription model
 
-const PORT = 10000;
+const PORT = process.env.PORT || 10000;
 
 const apiKeys = {
     publicKey: process.env.Public_Key,
