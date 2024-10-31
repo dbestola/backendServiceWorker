@@ -6,7 +6,7 @@ const env = require('dotenv').config();
 const mongoose = require('mongoose');
 const Subscription = require('./Models/Subscription'); // Import the Subscription model
 
-const PORT = process.env.PORT;
+const PORT = 10000;
 
 const apiKeys = {
     publicKey: process.env.Public_Key,
@@ -67,6 +67,20 @@ app.get("/send-notification", async (req, res) => {
     .catch(() => {
         res.status(500).json({ status: "Error", message: "Failed to send notifications" });
     });
+});
+
+app.get("/article", (req, res) => {
+
+    return res.send({
+        1: {
+          title: "Razzle and SSR", 
+          content: "Learn how to use Razzle with SSR.",
+        },
+        2: {
+          title: "Preloading State with Razzle",
+          content: "Learn how to preload state in Razzle apps.",
+        },
+      } )
 });
 
 // Connecting to MongoDB using Mongoose
